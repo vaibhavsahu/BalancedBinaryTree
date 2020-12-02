@@ -12,6 +12,7 @@ public class Main {
         root.setRightChild(new Node(12));
 
         System.out.println(Node.isBalanced(root));
+        System.out.println(Node.isBST(root));
 
     }
 }

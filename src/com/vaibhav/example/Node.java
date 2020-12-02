@@ -5,6 +5,9 @@ public class Node {
     private Node leftChild;
     private Node rightChild;
 
+    private static boolean left = false;
+    private static boolean right = false;
+
     public Node(int data) {
         this.data = data;
         this.leftChild = null;
@@ -59,6 +62,23 @@ public class Node {
             return 1;
         }
         return 1+Math.max(getHeight(root.getLeftChild()), getHeight(root.getRightChild()));
+    }
+
+    public static boolean isBST(Node root){
+        if(root == null){
+            return true;
+        }
+
+        if(root != null && root.getLeftChild() != null && root.getLeftChild().getData() > root.getData()){
+            return false;
+        }
+
+        if(root != null && root.getRightChild() != null && root.getRightChild().getData() < root.getData()){
+            return false;
+        }
+
+        return isBST(root.getRightChild()) && isBST(root.getLeftChild());
+
     }
 
     @Override
